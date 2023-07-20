@@ -25,6 +25,14 @@ let BotService = exports.BotService = class BotService {
         bot.on('new_chat_members', (msg) => {
             bot.sendMessage(msg.chat.id, `Привіт, ${msg.new_chat_members[0].first_name}! Я бот цього чату, якщо ви хочете відправити повідомлення, слідкувати за вашою поведінкою`);
         });
+        bot.on('message', (msg) => {
+            console.log(msg);
+            if (msg?.sticker) {
+                if (msg?.sticker.emoji === '👍') {
+                    bot.sendMessage(msg.chat.id, 'Репутація підвищена');
+                }
+            }
+        });
     }
 };
 exports.BotService = BotService = __decorate([
