@@ -9,6 +9,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
 const app_controller_1 = require("./app.controller");
+const bot_service_1 = require("./bot/bot.service");
+const prisma_service_1 = require("./prisma.service");
 const app_service_1 = require("./app.service");
 let AppModule = exports.AppModule = class AppModule {
 };
@@ -16,7 +18,7 @@ exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
         imports: [],
         controllers: [app_controller_1.AppController],
-        providers: [app_service_1.AppService],
+        providers: [bot_service_1.BotService, prisma_service_1.PrismaService, app_service_1.AppService],
     })
 ], AppModule);
 //# sourceMappingURL=app.module.js.map
